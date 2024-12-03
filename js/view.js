@@ -36,47 +36,47 @@ function renderStudent(students) {
   elTbody.innerHTML = ''
 
   students.forEach((student) => {
-    const elTr = generateStudent(student)
+    const elTr = generateTrStudent(student)
     elTbody.appendChild(elTr)
   })
 }
 
-function generateStudent(student) {
+function generateTrStudent(student) {
   const elTr = document.createElement('tr')
 
-  const th = document.createElement('th')
-  th.textContent = student.id
+  const elTh = document.createElement('th')
+  elTh.textContent = student.id
 
-  const tdFirstName = createElInput('text', 'firstName', student.firstName)
-  const tdLastName = createElInput('text', 'lastName', student.lastName)
-  const tdAge = createElInput('number', 'age', student.age, 16)
-  const tdFaculty = createElInput('text', 'faculty', student.faculty)
-  const tdIsBudget = createElInput('checkbox', 'isBudget', '', null)
-  tdIsBudget.querySelector('input').checked = student.isBudget
+  const elTdFirstName = generateTdInput('text', 'firstName', student.firstName)
+  const elTdLastName = generateTdInput('text', 'lastName', student.lastName)
+  const elTdAge = generateTdInput('number', 'age', student.age, 16)
+  const elTdFaculty = generateTdInput('text', 'faculty', student.faculty)
+  const elTdIsBudget = generateTdInput('checkbox', 'isBudget', '', null)
+  elTdIsBudget.querySelector('input').checked = student.isBudget
 
-  const tdButton = document.createElement('td')
-  const button = document.createElement('button')
-  button.textContent = 'Отчислить'
-  button.dataset.id = student.id
+  const elTdButton = document.createElement('td')
+  const elButton = document.createElement('button')
+  elButton.textContent = 'Отчислить'
+  elButton.dataset.id = student.id
 
-  button.addEventListener('click', () => {
-    handleDeleteStudent(student.id)
+  elButton.addEventListener('click', () => {
+    onClickButtonDeleteStudent(student.id)
   })
 
-  tdButton.appendChild(button)
+  elTdButton.appendChild(elButton)
 
-  elTr.appendChild(th)
-  elTr.appendChild(tdFirstName)
-  elTr.appendChild(tdLastName)
-  elTr.appendChild(tdAge)
-  elTr.appendChild(tdFaculty)
-  elTr.appendChild(tdIsBudget)
-  elTr.appendChild(tdButton)
+  elTr.appendChild(elTh)
+  elTr.appendChild(elTdFirstName)
+  elTr.appendChild(elTdLastName)
+  elTr.appendChild(elTdAge)
+  elTr.appendChild(elTdFaculty)
+  elTr.appendChild(elTdIsBudget)
+  elTr.appendChild(elTdButton)
 
   return elTr
 }
 
-function createElInput(type, name, value, min) {
+function generateTdInput(type, name, value, min) {
   const elTd = document.createElement('td')
   const elInput = document.createElement('input')
 
