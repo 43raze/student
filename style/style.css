@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #234;
+}
+
+input {
+  width: 100px;
+  outline: none;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #234;
+}
+
+input:focus {
+  border: 1px solid #234;
+}
+
+tfoot input {
+  border: 1px solid #000;
+}
