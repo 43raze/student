@@ -7,6 +7,7 @@ function onButtonClickAddStudent() {
   const student = parseInputs(listInputs)
 
   handleAddStudent(student)
+  renderTfoot()
 }
 
 function parseInputs(listInputs) {
@@ -24,8 +25,6 @@ function parseInputs(listInputs) {
 
     return [elInput.name, elInput.value.trim()]
   })
-
-  console.log(entries)
 
   return Object.fromEntries(entries)
 }
@@ -88,4 +87,11 @@ function generateTdInput(type, name, value, min) {
   elTd.appendChild(elInput)
   return elTd
 }
+
 function renderTfoot() {
+  const listInputs = document.querySelectorAll('tfoot input')
+
+  for (const elInput of listInputs) {
+    elInput.value = ''
+  }
+}
