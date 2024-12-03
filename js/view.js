@@ -88,3 +88,4 @@ function generateTdInput(type, name, value, min) {
   elTd.appendChild(elInput)
   return elTd
 }
+function renderTfoot() {
