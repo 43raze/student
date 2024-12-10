@@ -5,12 +5,11 @@ const studentsModel = {
 
   addStudent(student) {
     if (!this.validateStudent(student)) {
-      return null
+      return false
     }
-
     student.id = this.nextId++
-
     this.students.push(student)
+    return true
   },
 
   removeStudentById(id) {
