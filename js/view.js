@@ -95,3 +95,15 @@ function renderTfoot() {
     elInput.value = ''
   }
 }
+
+function renderSpanSystemMessage(message) {
+  const elSpan = document.querySelector('span')
+
+  if (message) {
+    elSpan.classList.add('system__message')
+    elSpan.textContent = message
+  } else {
+    elSpan.classList.remove('system__message')
+    elSpan.textContent = ''
+  }
+}

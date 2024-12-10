@@ -1,5 +1,13 @@
 function handleAddStudent(student) {
-  studentsModel.addStudent(student)
+  const isStudentAdd = studentsModel.addStudent(student)
+
+  if (!isStudentAdd) {
+    const message = studentsModel.messages[studentsModel.messages.length - 1]
+    renderSpanSystemMessage(message)
+  } else {
+    renderSpanSystemMessage()
+  }
+
   renderStudent(studentsModel.students)
 }
 
