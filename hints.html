@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: crimson;
+        opacity: 0;
+        transition: all 1s ease;
+      }
+      span.show {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Push Me</button>
+    <span>warning message!</span>
+  </body>
+</html>
+<script>
+  const elButton = document.querySelector('button')
+  elButton.onclick = onClickButton
+
+  function onClickButton() {
+    renderSpan()
+    setTimeout(renderSpan, 1000)
+  }
+
+  function renderSpan() {
+    const elSpan = document.querySelector('span')
+    elSpan.classList.toggle('show')
+  }
+</script>

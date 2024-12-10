@@ -1,39 +1,16 @@
-const listInputs = document.querySelectorAll('tfoot input')
 const elButton = document.querySelector('tfoot button')
+elButton.addEventListener('click', onClickButtonAddStudent)
 
-elButton.addEventListener('click', onButtonClickAddStudent)
-
-function onButtonClickAddStudent() {
+function onClickButtonAddStudent() {
+  const listInputs = document.querySelectorAll('tfoot input')
   const student = parseInputs(listInputs)
-
   handleAddStudent(student)
   renderTfoot()
 }
 
-function parseInputs(listInputs) {
-  const entries = Array.from(listInputs).map((elInput) => {
-    if (elInput.type === 'checkbox') {
-      return [elInput.name, elInput.checked]
-    }
-
-    if (elInput.type === 'number') {
-      return [
-        elInput.name,
-        elInput.value.trim() === '' ? null : Number(elInput.value),
-      ]
-    }
-
-    return [elInput.name, elInput.value.trim()]
-  })
-
-  return Object.fromEntries(entries)
-}
-
 function renderStudent(students) {
   const elTbody = document.querySelector('tbody')
-
   elTbody.innerHTML = ''
-
   students.forEach((student) => {
     const elTr = generateTrStudent(student)
     elTbody.appendChild(elTr)
@@ -106,4 +83,23 @@ function renderSpanSystemMessage(message) {
     elSpan.classList.remove('system__message')
     elSpan.textContent = ''
   }
+}
+
+function parseInputs(listInputs) {
+  const entries = Array.from(listInputs).map((elInput) => {
+    if (elInput.type === 'checkbox') {
+      return [elInput.name, elInput.checked]
+    }
+
+    if (elInput.type === 'number') {
+      return [
+        elInput.name,
+        elInput.value.trim() === '' ? null : Number(elInput.value),
+      ]
+    }
+
+    return [elInput.name, elInput.value.trim()]
+  })
+
+  return Object.fromEntries(entries)
 }

@@ -3,6 +3,10 @@ const studentsModel = {
   messages: [],
   nextId: 1,
 
+  getLastMessage() {
+    return this.messages[this.messages.length - 1]
+  },
+
   addStudent(student) {
     if (!this.validateStudent(student)) {
       return false

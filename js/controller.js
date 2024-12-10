@@ -1,14 +1,12 @@
 function handleAddStudent(student) {
-  const isStudentAdd = studentsModel.addStudent(student)
-
-  if (!isStudentAdd) {
-    const message = studentsModel.messages[studentsModel.messages.length - 1]
-    renderSpanSystemMessage(message)
-  } else {
-    renderSpanSystemMessage()
-  }
+  const isStudentAdded = studentsModel.addStudent(student)
 
   renderStudent(studentsModel.students)
+
+  if (!isStudentAdded) {
+    const lastMessage = studentsModel.getLastMessage()
+    renderSpanSystemMessage(lastMessage)
+  }
 }
 
 function handleDeleteStudent(studentId) {
