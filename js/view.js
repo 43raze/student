@@ -75,14 +75,8 @@ function renderTfoot() {
 
 function renderSpanSystemMessage(message) {
   const elSpan = document.querySelector('span')
-
-  if (message) {
-    elSpan.classList.add('system__message')
     elSpan.textContent = message
-  } else {
-    elSpan.classList.remove('system__message')
-    elSpan.textContent = ''
-  }
+  elSpan.classList.toggle('system__message')
 }
 
 function parseInputs(listInputs) {

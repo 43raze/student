@@ -6,6 +6,7 @@ function handleAddStudent(student) {
   if (!isStudentAdded) {
     const lastMessage = studentsModel.getLastMessage()
     renderSpanSystemMessage(lastMessage)
+    setTimeout(renderSpanSystemMessage, 1500)
   }
 }
 
