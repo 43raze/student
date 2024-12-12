@@ -5,6 +5,7 @@ function onClickButtonAddStudent() {
   const listInputs = document.querySelectorAll('tfoot input')
   const student = parseInputs(listInputs)
   handleAddStudent(student)
+
   renderTfoot()
 }
 
@@ -75,7 +76,7 @@ function renderTfoot() {
 
 function renderSpanSystemMessage(message) {
   const elSpan = document.querySelector('span')
-    elSpan.textContent = message
+  elSpan.textContent = message
   elSpan.classList.toggle('system__message')
 }
 
