@@ -12,7 +12,7 @@ function onClickButtonAddStudent() {
 function renderStudent(students) {
   const elTbody = document.querySelector('tbody')
   elTbody.innerHTML = ''
-  students.forEach((student) => {
+  students.forEach(student => {
     const elTr = generateTrStudent(student)
     elTbody.appendChild(elTr)
   })
@@ -74,14 +74,17 @@ function renderTfoot() {
   }
 }
 
-function renderSpanSystemMessage(message) {
+function renderSpanSystemMessage(message, repeat = true) {
   const elSpan = document.querySelector('span')
   elSpan.textContent = message
   elSpan.classList.toggle('system__message')
+  if (repeat) {
+    setTimeout(() => renderSpanSystemMessage(message, false), 1500)
+  }
 }
 
 function parseInputs(listInputs) {
-  const entries = Array.from(listInputs).map((elInput) => {
+  const entries = Array.from(listInputs).map(elInput => {
     if (elInput.type === 'checkbox') {
       return [elInput.name, elInput.checked]
     }
