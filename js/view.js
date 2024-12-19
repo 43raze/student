@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+  handleInitStudents()
+})
+
 const elButton = document.querySelector('tfoot button')
 elButton.addEventListener('click', onClickButtonAddStudent)
 
@@ -37,7 +41,7 @@ function generateTrStudent(student) {
   elButton.dataset.id = student.id
 
   elButton.addEventListener('click', () => {
-    onClickButtonDeleteStudent(student.id)
+    handleDeleteStudent(student.id)
   })
 
   elTdButton.appendChild(elButton)
